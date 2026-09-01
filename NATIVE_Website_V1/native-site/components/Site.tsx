@@ -1,0 +1,6 @@
+import Link from 'next/link';
+import {copy, Locale} from '@/lib/i18n';
+
+export function Header({locale}:{locale:Locale}){const c=copy[locale];return <div className="shell"><nav className="nav"><Link className="brand" href={`/${locale}`}>NATIVE</Link><div className="navlinks"><Link href={`/${locale}/creators`}>{c.nav.creators}</Link><Link href={`/${locale}/brands`}>{c.nav.brands}</Link><Link href={`/${locale}/services`}>{c.nav.services}</Link><Link href={`/${locale}/about`}>{c.nav.about}</Link><Link className="button" href={`/${locale}/contact`}>{c.nav.contact}</Link><div className="langs"><Link className="lang" href="/de">DE</Link><Link className="lang" href="/en">EN</Link><Link className="lang" href="/zh">中文</Link></div></div></nav></div>}
+export function Footer({locale}:{locale:Locale}){const c=copy[locale];return <div className="shell"><footer className="footer"><div><strong>NATIVE</strong><p>{c.footer}</p></div><div className="footer-right"><Link href={`/${locale}/creators`}>{c.nav.creators}</Link><Link href={`/${locale}/brands`}>{c.nav.brands}</Link><Link href={`/${locale}/contact`}>{c.nav.contact}</Link></div></footer></div>}
+export function PageHero({eyebrow,title,lead}:{eyebrow?:string,title:string,lead:string}){return <section className="pagehero shell">{eyebrow&&<div className="eyebrow">{eyebrow}</div>}<h1>{title}</h1><p>{lead}</p></section>}

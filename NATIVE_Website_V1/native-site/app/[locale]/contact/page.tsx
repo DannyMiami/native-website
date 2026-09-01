@@ -1,0 +1,2 @@
+import {notFound} from 'next/navigation';import {copy,isLocale} from '@/lib/i18n';import {PageHero} from '@/components/Site';
+export default async function P({params}:{params:Promise<{locale:string}>}){const {locale}=await params;if(!isLocale(locale))notFound();const c=copy[locale].contact;return <main><PageHero eyebrow="NATIVE / CONTACT" title={c.title} lead={c.lead}/><section className="content shell"><div className="contactbox"><h2>{c.cta}</h2><p>hello@native.example</p><a href="mailto:hello@native.example">{c.cta}</a></div></section></main>}

@@ -1,0 +1,2 @@
+import {notFound} from 'next/navigation';import {copy,isLocale} from '@/lib/i18n';import {PageHero} from '@/components/Site';
+export default async function P({params}:{params:Promise<{locale:string}>}){const {locale}=await params;if(!isLocale(locale))notFound();const c=copy[locale].brands;return <main><PageHero eyebrow="NATIVE / BRANDS" title={c.title} lead={c.lead}/><section className="content shell">{c.body.map(x=><p key={x}>{x}</p>)}<h2>Market Entry · Local Creative · Campaigns · Platform Operations</h2></section></main>}
