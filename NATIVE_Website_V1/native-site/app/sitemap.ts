@@ -1,0 +1,2 @@
+import type {MetadataRoute} from 'next';import {locales} from '@/lib/i18n';import {publicPaths,siteUrl} from '@/lib/site';
+export default function sitemap():MetadataRoute.Sitemap{const base=siteUrl();return locales.flatMap(locale=>publicPaths.map(path=>{const suffix=path?`/${path}`:'';return {url:`${base}/${locale}${suffix}`,lastModified:new Date(),changeFrequency:path==='cases'?'weekly':'monthly',priority:path?0.8:1,alternates:{languages:{de:`${base}/de${suffix}`,en:`${base}/en${suffix}`,'zh-CN':`${base}/zh${suffix}`,'x-default':`${base}/en${suffix}`}}}}))}
