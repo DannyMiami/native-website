@@ -1,0 +1,1 @@
+export function ArrowUpRight({className}:{className?:string}){return <svg className={className} aria-hidden="true" viewBox="0 0 24 24" fill="none" focusable="false"><path d="M6.5 17.5 17.5 6.5M8 6.5h9.5V16" stroke="currentColor" strokeWidth="1.5" strokeLinecap="square" strokeLinejoin="miter" vectorEffect="non-scaling-stroke"/></svg>}

@@ -3,6 +3,7 @@ import {notFound} from 'next/navigation';
 import {homeCopy} from '@/lib/home';
 import {isLocale} from '@/lib/i18n';
 import type {Metadata} from 'next';
+import {ArrowUpRight} from '@/components/ArrowUpRight';
 
 export async function generateMetadata({params}:{params:Promise<{locale:string}>}):Promise<Metadata>{const {locale}=await params;if(!isLocale(locale))return {};const values={en:{title:'NATIVE — Cross-Cultural Media, Localization & Production',description:'NATIVE helps creators and brands enter new markets through strategy, localization, production, platform management and partnerships.'},de:{title:'NATIVE — Cross-Cultural Media, Lokalisierung & Produktion',description:'NATIVE unterstützt Creator und Marken beim Eintritt in neue Märkte – mit Strategie, Lokalisierung, Produktion, Plattformmanagement und Partnerschaften.'},zh:{title:'NATIVE — 跨文化媒体、本地化与内容制作',description:'NATIVE 帮助品牌与创作者通过策略、本地化、内容制作、平台运营与合作进入新的市场。'}}[locale];return {...values,alternates:{canonical:`/${locale}`,languages:{de:'/de',en:'/en','zh-CN':'/zh','x-default':'/en'}},openGraph:{...values,locale:locale==='de'?'de_DE':locale==='zh'?'zh_CN':'en_US',alternateLocale:locale==='de'?['en_US','zh_CN']:locale==='zh'?['en_US','de_DE']:['de_DE','zh_CN']}}}
 
@@ -37,7 +38,7 @@ export default async function Home({params}:{params:Promise<{locale:string}>}) {
 
     <section className="services-editorial home-section reveal">
       <div className="shell services-heading"><div><span className="section-number">03</span><span className="section-kicker">{c.services.label}</span></div><div><h2>{c.services.title}</h2><p>{c.services.intro}</p></div></div>
-      <div className="service-list">{c.services.items.map(([title,body],i)=><div className="service-row shell" key={title}><span className="service-num">0{i+1}</span><h3>{title}</h3><p>{body}</p><span className="service-arrow" aria-hidden="true">↗</span></div>)}</div>
+      <div className="service-list">{c.services.items.map(([title,body],i)=><div className="service-row shell" key={title}><span className="service-num">0{i+1}</span><h3>{title}</h3><p>{body}</p><ArrowUpRight className="service-arrow"/></div>)}</div>
     </section>
 
     <section className="markets-section home-section shell reveal">
